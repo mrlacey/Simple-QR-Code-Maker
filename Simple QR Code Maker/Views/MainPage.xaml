@@ -28,6 +28,7 @@
         PanePlacement="Right">
         <SplitView.Content>
             <Grid>
+                <!-- Lots of the widths seem arbitrarily chosen, are there reasons and relative sizes that are important -->
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                     <StackPanel
                         Margin="20"
@@ -99,6 +100,7 @@
                                 </Button.Flyout>
                                 <Button.Content>
                                     <Viewbox Width="18" Height="18">
+                                        <!-- why is this bound to the picker rather than the viewmodel? -->
                                         <FontIcon
                                             FontFamily="{ThemeResource SymbolThemeFontFamily}"
                                             Foreground="{x:Bind ForegroundColorPicker.Color, Mode=OneWay, Converter={StaticResource ColorToBrush}}"
@@ -152,6 +154,7 @@
                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                 ScrollViewer.VerticalScrollBarVisibility="Auto">
                                 <GridView.ItemTemplate>
+                                    <!-- Extract this as a separate control? -->
                                     <DataTemplate x:DataType="models:BarcodeImageItem">
                                         <Grid
                                             Margin="4"
@@ -309,6 +312,7 @@
                         ToolTipService.ToolTip="Share Simple Icon File Maker..." />
                 </StackPanel>
 
+                <!-- Why is this an InfoBar? -->
                 <InfoBar
                     x:Name="SharePane"
                     Title="Share Simple QR Code Maker"
@@ -366,6 +370,7 @@
                     ItemsSource="{x:Bind ViewModel.HistoryItems}"
                     SelectedItem="{x:Bind ViewModel.SelectedHistoryItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ListView.ItemTemplate>
+                        <!-- Extract this as a separate control? -->
                         <DataTemplate x:DataType="models:HistoryItem">
                             <Grid Margin="2" Padding="0,6">
                                 <Grid.RowDefinitions>
