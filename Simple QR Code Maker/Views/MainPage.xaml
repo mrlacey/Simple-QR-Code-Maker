@@ -389,7 +389,8 @@
                     <ListView.ItemTemplate>
                         <!-- Extract this as a separate control? -->
                         <DataTemplate x:DataType="models:HistoryItem">
-                            <Grid Margin="2" Padding="0,6">
+                            <c:HistoryEntry Data="{x:Bind}" />
+                            <!--<Grid Margin="2" Padding="0,6">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="auto" />
                                     <RowDefinition Height="auto" />
@@ -418,7 +419,7 @@
                                     Style="{StaticResource CaptionTextBlockStyle}"
                                     Text="{x:Bind SaveDateAsString, Mode=OneWay}"
                                     TextTrimming="WordEllipsis" />
-                            </Grid>
+                            </Grid>-->
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
