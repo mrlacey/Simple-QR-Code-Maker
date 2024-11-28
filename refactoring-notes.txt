@@ -1,0 +1,46 @@
+
+
+User Controls
+=============
+
+Extracting logic for the display of a single QRCode image as a separate UserControl
+
+What logic goes in the control vs what logic goes in the VM vs what logic goes in a service
+
+Decouple logic around saving/exporting QRCodes as images (or to clipboard)
+- first clarify the logic around saving one vs saving them all
+
+review where all the current logic is
+
+
+
+
+HistoryItem
+- Add binding mode
+
+
+
+
+
+
+Tidy up XAML
+============
+
+Consistent: spacing, padding
+
+separate display vs positioning logic.
+
+
+separate controls
+-----------------
+
+SymbolIcon
+FontIcon
+IconTextButton
+
+
+
+
+
+
+
