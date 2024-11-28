@@ -10,40 +10,18 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <!-- Why this height? -->
-            <RowDefinition Height="36" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Is this needed? -->
-        <AppBarButton
-            VerticalAlignment="Center"
-            Canvas.ZIndex="0"
-            Command="{x:Bind ViewModel.BackCommand}"
-            Icon="Back"
-            IsEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
-            Style="{StaticResource NavigationBackButtonSmallStyle}"
-            Visibility="Collapsed" />
-        <StackPanel
+        <TextBlock
             x:Name="AppTitleBar"
-            Margin="6,0,0,0"
-            Padding="0"
             Canvas.ZIndex="1"
             IsHitTestVisible="True"
-            Orientation="Horizontal"
-            Spacing="10">
-            <!-- Is this image shown? -->
-            <Image
-                Width="24"
-                Height="24"
-                Margin="4,2"
-                Source="/Assets/WindowIcon.ico" />
-            <TextBlock
-                x:Name="AppTitleBarText"
-                VerticalAlignment="Center"
-                Style="{StaticResource CaptionTextBlockStyle}"
-                TextWrapping="NoWrap" />
-        </StackPanel>
+            Margin="6"
+            Style="{StaticResource CaptionTextBlockStyle}"
+            TextWrapping="NoWrap" />
+
         <Frame x:Name="NavigationFrame" Grid.Row="1" />
     </Grid>
 </Page>
