@@ -33,7 +33,17 @@ public partial class SettingsSymbol : UserControl
     }
 }
 
+
+
+
+
+
 // FontIcon isn't sealed 🎉
+
+
+
+
+
 public partial class ScanIcon : FontIcon
 {
     public ScanIcon()
@@ -42,6 +52,23 @@ public partial class ScanIcon : FontIcon
         this.Glyph = "\uEE6F";
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ViewBox is sealed, so we need a UserControl
 public partial class ScanSymbol : UserControl
