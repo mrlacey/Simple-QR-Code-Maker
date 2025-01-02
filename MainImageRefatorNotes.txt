@@ -1,0 +1,50 @@
+﻿
+Drag event handling
+
+ContextMenus - commands
+*ContextCommands - 5 on individual
+	2 use SaveSingle (as does generic SavePng & SaveSvg - but they don't really need to.)
+
+*Commands - 4 on all
+
+most commands try and show a message on the main page (via the VM)
+
+
+InfoBar
+
+---
+
+Create GeneratedImage
+Add Propdp "Data"
+Update x:bind to be to "Data.*"
+set x:bind modes to OneWay
+{Binding doesn't need the Data.}
+
+Move *ContextCommands to BarcodeImageItem
+& make it inherit from ObservableRecipient
+remove commandParameters & ElementNames from Binding
+
+Add class RequestShowMessage
+
+in MainViewModel ctor add 
+        WeakReferenceMessenger.Default.Register<RequestShowMessage>(this, OnRequestShowMessage);
+Add OnRequestShowMessage method
+
+Call as appropriate: 
+    WeakReferenceMessenger.Default.Send(new RequestShowMessage("SVG QR Code as Text copied to the clipboard", string.Empty, InfoBarSeverity.Success));
+
+
+Add properties to BarcodeImageItem for
+    BackgroundColorProperty
+    ForegroundColorProperty
+    ErrorCorrection
+
+Set these in MainViewModel.GenerateQrCodeFromOneLine
+
+
+cut & paste QrCodeImage_DragStarting to GeneratedImage.xaml.cs
+add using declaration for Extensions
+! Needs to call ViewModel.SaveCurrentStateToHistory();
+
+
+

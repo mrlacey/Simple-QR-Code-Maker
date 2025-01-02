@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Simple_QR_Code_Maker.Models"
-    xmlns:toolkitConverters="using:CommunityToolkit.WinUI.Converters"
     Name="EncodingPage"
     Loaded="Page_Loaded"
     mc:Ignorable="d">
@@ -15,7 +14,7 @@
     <Page.Resources>
         <converters:TextHasNoURLConverter x:Key="HasNoURL" />
         <converters:ColorToBrushConverter x:Key="ColorToBrush" />
-        <toolkitConverters:BoolToVisibilityConverter x:Key="BoolToVisibility" />
+        <!--<toolkitConverters:BoolToVisibilityConverter x:Key="BoolToVisibility" />-->
 
         <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="Button">
             <Setter Property="Height" Value="32" />
@@ -59,8 +58,7 @@
                                     Padding="0"
                                     VerticalAlignment="Bottom"
                                     Command="{x:Bind ViewModel.AddNewLineCommand}"
-                                    ToolTipService.ToolTip="Add a return and start making another QR Code"
-                                    Visibility="{x:Bind ViewModel.CanSaveImage, Converter={StaticResource BoolToVisibility}, Mode=OneWay}">
+                                    ToolTipService.ToolTip="Add a return and start making another QR Code">
                                     <Viewbox Width="16" Height="16">
                                         <SymbolIcon Symbol="Add" />
                                     </Viewbox>
@@ -73,8 +71,7 @@
                                     VerticalAlignment="Bottom"
                                     Command="{x:Bind ViewModel.PasteTextIntoUrlTextCommand}"
                                     IsEnabled="{x:Bind ViewModel.CanPasteText, Mode=OneWay}"
-                                    ToolTipService.ToolTip="Paste text from clipboard"
-                                    Visibility="{x:Bind ViewModel.CanSaveImage, Converter={StaticResource BoolToVisibility}, ConverterParameter=True, Mode=OneWay}">
+                                    ToolTipService.ToolTip="Paste text from clipboard">
                                     <Viewbox Width="16" Height="16">
                                         <SymbolIcon Symbol="Paste" />
                                     </Viewbox>
@@ -86,8 +83,7 @@
                             x:Name="QrCodeOptions"
                             HorizontalAlignment="Center"
                             Orientation="Horizontal"
-                            Spacing="12"
-                            Visibility="{x:Bind ViewModel.CanSaveImage, Mode=OneWay, Converter={StaticResource BoolToVisibility}}">
+                            Spacing="12">
                             <Button Width="68" ToolTipService.ToolTip="Code Color">
                                 <Button.Flyout>
                                     <Flyout>
@@ -157,7 +153,7 @@
                                 <GridView.ItemTemplate>
                                     <!-- Extract this as a separate control? -->
                                     <DataTemplate x:DataType="models:BarcodeImageItem">
-                                        <Grid
+                                        <!--<Grid
                                             Margin="4"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center">
@@ -210,8 +206,9 @@
                                                 Message="QR Code not a URL"
                                                 Severity="Warning"
                                                 ToolTipService.ToolTip="This warning can be disabled in settings" />
-                                        </Grid>
-                                    </DataTemplate>
+                                        </Grid>-->
+										<c:GeneratedImage Data="{x:Bind}" />
+									</DataTemplate>
                                 </GridView.ItemTemplate>
                             </GridView>
                         </Border>
