@@ -25,37 +25,6 @@ public sealed partial class GeneratedImage : UserControl
     public static readonly DependencyProperty DataProperty =
         DependencyProperty.Register("Data", typeof(BarcodeImageItem), typeof(GeneratedImage), new PropertyMetadata(null));
 
-
-    //public Windows.UI.Color BackgroundColor
-    //{
-    //    get { return (Windows.UI.Color)GetValue(BackgroundColorProperty); }
-    //    set { SetValue(BackgroundColorProperty, value); }
-    //}
-
-    //public static readonly DependencyProperty BackgroundColorProperty =
-    //    DependencyProperty.Register("BackgroundColor", typeof(Windows.UI.Color), typeof(GeneratedImage), new PropertyMetadata(Windows.UI.Color.FromArgb(255, 255, 255, 255)));
-
-    //public Windows.UI.Color ForegroundColor
-    //{
-    //    get { return (Windows.UI.Color)GetValue(ForegroundColorProperty); }
-    //    set { SetValue(ForegroundColorProperty, value); }
-    //}
-
-    //public static readonly DependencyProperty ForegroundColorProperty =
-    //    DependencyProperty.Register("ForegroundColor", typeof(Windows.UI.Color), typeof(GeneratedImage), new PropertyMetadata(Windows.UI.Color.FromArgb(255, 0, 0, 0)));
-
-    //public ErrorCorrectionOptions ErrorCorrection
-    //{
-    //    get { return (ErrorCorrectionOptions)GetValue(ErrorCorrectionProperty); }
-    //    set { SetValue(ErrorCorrectionProperty, value); }
-    //}
-
-    //public static readonly DependencyProperty ErrorCorrectionProperty =
-    //    DependencyProperty.Register("ErrorCorrection", typeof(ErrorCorrectionOptions), typeof(GeneratedImage), new PropertyMetadata(new ErrorCorrectionOptions("Medium 15%", ZXing.QrCode.Internal.ErrorCorrectionLevel.M)));
-
-
-
-
     private async void QrCodeImage_DragStarting(UIElement sender, DragStartingEventArgs args)
     {
         if (sender is not Image image || image.Source is not WriteableBitmap bitmap)
@@ -81,5 +50,4 @@ public sealed partial class GeneratedImage : UserControl
         args.Data.RequestedOperation = DataPackageOperation.Copy;
         deferral.Complete();
     }
-
 }

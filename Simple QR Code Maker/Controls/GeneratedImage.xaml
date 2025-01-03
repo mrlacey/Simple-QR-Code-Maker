@@ -23,7 +23,6 @@
 			<Image.ContextFlyout>
 				<MenuFlyout>
 					<MenuFlyoutItem
-                        Name="ContextPngBtn"
                         Command="{Binding SaveCodePngContextCommand}"
                         Icon="Save"
                         Text="Save PNG..." />

@@ -164,12 +164,12 @@ public partial class MainViewModel : ObservableRecipient, INavigationAware
         WeakReferenceMessenger.Default.Register<RequestShowMessage>(this, OnRequestShowMessage);
     }
 
-    private void OnRequestShowMessage(object recipient, RequestShowMessage message) {
-
-        CodeInfoBarMessage = message.Message;
+    private void OnRequestShowMessage(object recipient, RequestShowMessage rsm)
+    {
+        CodeInfoBarMessage = rsm.Message;
         ShowCodeInfoBar = true;
-        CodeInfoBarSeverity = message.Severity;
-        CodeInfoBarTitle = message.Title;
+        CodeInfoBarSeverity = rsm.Severity;
+        CodeInfoBarTitle = rsm.Title;
 
         copyInfoBarTimer.Start();
     }
